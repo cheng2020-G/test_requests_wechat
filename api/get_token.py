@@ -1,7 +1,7 @@
 import pytest
 import yaml
 
-from test_requests_wechat_po.api.baseapi import BaseApi
+from api.baseapi import BaseApi
 
 
 class GetToken(BaseApi):

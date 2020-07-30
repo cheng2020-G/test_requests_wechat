@@ -1,4 +1,4 @@
-from test_requests_wechat_po.test_base.testbase import TestBase
+from test_base.testbase import TestBase
 
 
 class TestGetToken(TestBase):

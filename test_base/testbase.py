@@ -1,5 +1,5 @@
-from test_requests_wechat_po.api.dept import Dept
-from test_requests_wechat_po.api.get_token import GetToken
+from api.dept import Dept
+from api.get_token import GetToken
 
 
 class TestBase:

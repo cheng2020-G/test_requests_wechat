@@ -1,5 +1,5 @@
-from test_requests_wechat_po.api.baseapi import BaseApi
-from test_requests_wechat_po.api.get_token import GetToken
+from api.baseapi import BaseApi
+from api.get_token import GetToken
 
 
 class Dept(BaseApi):
