@@ -1,19 +1,22 @@
+import yaml
+
 from api.baseapi import BaseApi
 from api.get_token import GetToken
+from string import Template
 
 
 class Dept(BaseApi):
     token = GetToken().get_token()
 
+    # 使用python中的string模板，用来替换yaml文件中的变量，以实现测试步骤的数据驱动
+    def Template(self):
+        with open("../data/get_dept.yaml") as f:
+            req = Template(f.read()).substitute(access_token=self.token)
+            print(req)
+            return yaml.safe_load(req)
+
     def get_dept(self):
-        data = {
-            "method": "get",
-            "url": "https://qyapi.weixin.qq.com/cgi-bin/department/list?",
-            "params": {
-                "access_token": self.token,
-                "id": "1"
-            }
-        }
+        data = self.Template()
         return self.send(data)
 
     def add_dept(self):
@@ -56,3 +59,8 @@ class Dept(BaseApi):
             }
         }
         return self.send(data)
+
+# 调式时使用
+# if __name__ == '__main__':
+#     get_dept = Dept()
+#     get_dept.Template()
