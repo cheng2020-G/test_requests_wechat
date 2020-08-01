@@ -1,7 +1,7 @@
-from base.testbase import TestBase
+from base.testbase import Base
 
 
-class TestDept(TestBase):
+class TestDept(Base):
 
     def test_add_dept(self):
         self.dept.add_dept()
