@@ -1,4 +1,4 @@
-from test_base.testbase import TestBase
+from base.testbase import TestBase
 
 
 class TestGetToken(TestBase):
