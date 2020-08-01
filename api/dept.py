@@ -10,57 +10,31 @@ class Dept(BaseApi):
 
     # 使用python中的string模板，用来替换yaml文件中的变量，以实现测试步骤的数据驱动
     def Template(self):
-        with open("../data/get_dept.yaml") as f:
+        with open("../data/dept.yaml") as f:
             req = Template(f.read()).substitute(access_token=self.token)
-            print(req)
             return yaml.safe_load(req)
 
     def get_dept(self):
-        data = self.Template()
+        data = self.Template()[0]
         return self.send(data)
 
     def add_dept(self):
-        data = {
-            "method": "post",
-            "url": "https://qyapi.weixin.qq.com/cgi-bin/department/create?",
-            "params": {
-                "access_token": self.token,
-                "name": "北京部门",
-                "name_en": "dept-bj",
-                "parentid": 1,
-                "order": 1,
-                "id": 10
-            }
-        }
+        data = self.Template()[1]
+        print(data)
         return self.send(data)
 
     def update_dept(self):
-        data = {
-            "method": "post",
-            "url": "https://qyapi.weixin.qq.com/cgi-bin/department/update?",
-            "params": {
-                "access_token": self.token,
-                "id": 5,
-                "name": "爱测测试平台",
-                "name_en": "ceshier",
-                "parentid": 1,
-                "order": 1
-            }
-        }
+        data = self.Template()[2]
         return self.send(data)
 
     def delete_dept(self):
-        data = {
-            "method": "post",
-            "url": "https://qyapi.weixin.qq.com/cgi-bin/department/delete?",
-            "params": {
-                "access_token": self.token,
-                "id": 4
-            }
-        }
+        data = self.Template()[3]
         return self.send(data)
 
 # 调式时使用
 # if __name__ == '__main__':
-#     get_dept = Dept()
-#     get_dept.Template()
+    # get_dept = Dept()
+    # get_dept.Template()
+
+    # dept_data = Dept()
+    # dept_data.add_dept()

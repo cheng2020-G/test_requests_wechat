@@ -4,6 +4,7 @@ from test_base.testbase import TestBase
 class TestDept(TestBase):
 
     def test_add_dept(self):
+        self.dept.add_dept()
         assert self.dept.add_dept()['errmsg'] == 'created'
 
     def test_get_dept(self):

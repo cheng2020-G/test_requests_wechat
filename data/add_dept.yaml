@@ -1,9 +1,0 @@
-method: post
-url: https://qyapi.weixin.qq.com/cgi-bin/department/create?
-params:
-  access_token: $access_token
-  name: 北京部门
-  name_en: dept-bj
-  parentid: 1
-  order: 1
-  id: 10

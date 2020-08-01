@@ -1,0 +1,25 @@
+- method: get
+  url: https://qyapi.weixin.qq.com/cgi-bin/department/list?
+  params:
+    access_token: $access_token
+    id: 1
+
+- method: post
+  url: https://qyapi.weixin.qq.com/cgi-bin/department/create?
+  params:
+    access_token: $access_token
+    name: 1
+    parentid: 1
+
+- method: post
+  url: https://qyapi.weixin.qq.com/cgi-bin/department/update?
+  params:
+    access_token: $access_token
+    id: 5
+    name: test_aice
+
+- method: post
+  url: https://qyapi.weixin.qq.com/cgi-bin/department/delete?
+  params:
+    access_token: $access_token
+    id: 4
